@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroBannerCell" id="gTV-IL-0wX" customClass="HeroBannerCell" customModule="OTT_Demo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="380"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="380"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="img-banner">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="380"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vw-gradient">
+                        <rect key="frame" x="0.0" y="133" width="393" height="247"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-play">
+                        <rect key="frame" x="16" y="320" width="130" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="cst-btn-h"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="cst-btn-w"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" image="play.fill" catalog="system" title="Play Now" imagePadding="8" cornerStyle="medium">
+                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="playButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="act-play"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-desc">
+                        <rect key="frame" x="16" y="291" width="361" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-title">
+                        <rect key="frame" x="16" y="253.66666666666666" width="361" height="31.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="img-banner" secondAttribute="trailing" id="cst-img-r"/>
+                <constraint firstItem="img-banner" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cst-img-l"/>
+                <constraint firstItem="img-banner" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cst-img-t"/>
+                <constraint firstAttribute="bottom" secondItem="img-banner" secondAttribute="bottom" id="cst-img-b"/>
+                <constraint firstAttribute="trailing" secondItem="vw-gradient" secondAttribute="trailing" id="cst-grad-r"/>
+                <constraint firstItem="vw-gradient" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cst-grad-l"/>
+                <constraint firstAttribute="bottom" secondItem="vw-gradient" secondAttribute="bottom" id="cst-grad-b"/>
+                <constraint firstItem="vw-gradient" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.65" id="cst-grad-h"/>
+                <constraint firstItem="btn-play" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="cst-btn-l"/>
+                <constraint firstAttribute="bottom" secondItem="btn-play" secondAttribute="bottom" constant="16" id="cst-btn-b"/>
+                <constraint firstItem="btn-play" firstAttribute="top" secondItem="lbl-desc" secondAttribute="bottom" constant="12" id="cst-desc-b"/>
+                <constraint firstItem="lbl-desc" firstAttribute="top" secondItem="lbl-title" secondAttribute="bottom" constant="6" id="cst-title-b"/>
+                <constraint firstItem="lbl-desc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="cst-desc-l"/>
+                <constraint firstAttribute="trailing" secondItem="lbl-desc" secondAttribute="trailing" constant="16" id="cst-desc-r"/>
+                <constraint firstItem="lbl-title" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="cst-title-l"/>
+                <constraint firstAttribute="trailing" secondItem="lbl-title" secondAttribute="trailing" constant="16" id="cst-title-r"/>
+            </constraints>
+            <size key="customSize" width="393" height="380"/>
+            <connections>
+                <outlet property="bannerImageView" destination="img-banner" id="out-banner"/>
+                <outlet property="descriptionLabel" destination="lbl-desc" id="out-desc"/>
+                <outlet property="gradientView" destination="vw-gradient" id="out-grad"/>
+                <outlet property="playButton" destination="btn-play" id="out-play"/>
+                <outlet property="titleLabel" destination="lbl-title" id="out-title"/>
+            </connections>
+            <point key="canvasLocation" x="130" y="20"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

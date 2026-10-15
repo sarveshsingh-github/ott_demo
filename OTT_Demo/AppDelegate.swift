@@ -18,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        var topController = window?.rootViewController
+        while let presented = topController?.presentedViewController {
+            topController = presented
+        }
+        if let nav = topController as? UINavigationController {
+            topController = nav.topViewController
+        }
+        return topController?.supportedInterfaceOrientations ?? .portrait
+    }
+
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

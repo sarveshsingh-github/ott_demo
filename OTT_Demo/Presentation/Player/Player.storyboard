@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video Player View Controller-->
+        <scene sceneID="player-scene">
+            <objects>
+                <viewController storyboardIdentifier="VideoPlayerViewController" modalPresentationStyle="fullScreen" id="vc-player" customClass="VideoPlayerViewController" customModule="OTT_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vw-root">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <!-- Video Layer Container View -->
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vw-video-container">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <!-- Controls Overlay -->
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vw-controls-overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <!-- Top Bar -->
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vw-top-bar">
+                                        <rect key="frame" x="16" y="59" width="361" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-dismiss">
+                                                <rect key="frame" x="0.0" y="2" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="cst-dismiss-w"/>
+                                                    <constraint firstAttribute="height" constant="40" id="cst-dismiss-h"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="xmark.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" pointSize="26"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapDismiss:" destination="vc-player" eventType="touchUpInside" id="act-dismiss"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-top-title">
+                                                <rect key="frame" x="48" y="11.666666666666671" width="265" height="20.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="btn-dismiss" firstAttribute="centerY" secondItem="vw-top-bar" secondAttribute="centerY" id="cst-dismiss-cy"/>
+                                            <constraint firstItem="btn-dismiss" firstAttribute="leading" secondItem="vw-top-bar" secondAttribute="leading" id="cst-dismiss-l"/>
+                                            <constraint firstAttribute="height" constant="44" id="cst-top-h"/>
+                                            <constraint firstItem="lbl-top-title" firstAttribute="centerY" secondItem="vw-top-bar" secondAttribute="centerY" id="cst-title-cy"/>
+                                            <constraint firstItem="lbl-top-title" firstAttribute="leading" secondItem="btn-dismiss" secondAttribute="trailing" constant="8" id="cst-title-l"/>
+                                            <constraint firstAttribute="trailing" secondItem="lbl-top-title" secondAttribute="trailing" constant="48" id="cst-title-r"/>
+                                        </constraints>
+                                    </view>
+                                    <!-- Center Controls: Rewind 10, Play/Pause, Forward 10 -->
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="stk-center-controls">
+                                        <rect key="frame" x="84.666666666666686" y="394" width="224" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-rewind">
+                                                <rect key="frame" x="0.0" y="10" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="cst-rw-w"/>
+                                                    <constraint firstAttribute="height" constant="44" id="cst-rw-h"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="gobackward.10" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" pointSize="30"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapRewind:" destination="vc-player" eventType="touchUpInside" id="act-rewind"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-play-pause">
+                                                <rect key="frame" x="80" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="64" id="cst-pp-w"/>
+                                                    <constraint firstAttribute="height" constant="64" id="cst-pp-h"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="play.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" pointSize="56"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapPlayPause:" destination="vc-player" eventType="touchUpInside" id="act-pp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-forward">
+                                                <rect key="frame" x="180" y="10" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="cst-fw-h"/>
+                                                    <constraint firstAttribute="width" constant="44" id="cst-fw-w"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="goforward.10" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" pointSize="30"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapForward:" destination="vc-player" eventType="touchUpInside" id="act-forward"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <!-- Buffering Spinner -->
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="act-player-spinner">
+                                        <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                    <!-- Bottom Bar: Current Time, Slider, Duration -->
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vw-bottom-bar">
+                                        <rect key="frame" x="16" y="744" width="361" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-curr-time">
+                                                <rect key="frame" x="0.0" y="17" width="42" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="cst-cur-w"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sld-progress">
+                                                <rect key="frame" x="48" y="10" width="265" height="31"/>
+                                                <color key="tintColor" systemColor="systemRedColor"/>
+                                                <connections>
+                                                    <action selector="progressSliderTouchDown:" destination="vc-player" eventType="touchDown" id="act-sl-down"/>
+                                                    <action selector="progressSliderTouchUp:" destination="vc-player" eventType="touchUpInside" id="act-sl-up"/>
+                                                    <action selector="progressSliderTouchUp:" destination="vc-player" eventType="touchUpOutside" id="act-sl-out"/>
+                                                    <action selector="progressSliderValueChanged:" destination="vc-player" eventType="valueChanged" id="act-sl-val"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-duration">
+                                                <rect key="frame" x="319" y="17" width="42" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="cst-dur-w"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl-curr-time" firstAttribute="leading" secondItem="vw-bottom-bar" secondAttribute="leading" id="cst-cur-l"/>
+                                            <constraint firstItem="lbl-curr-time" firstAttribute="centerY" secondItem="vw-bottom-bar" secondAttribute="centerY" id="cst-cur-cy"/>
+                                            <constraint firstItem="sld-progress" firstAttribute="leading" secondItem="lbl-curr-time" secondAttribute="trailing" constant="8" id="cst-sld-l"/>
+                                            <constraint firstItem="sld-progress" firstAttribute="centerY" secondItem="vw-bottom-bar" secondAttribute="centerY" id="cst-sld-cy"/>
+                                            <constraint firstAttribute="trailing" secondItem="lbl-duration" secondAttribute="trailing" id="cst-dur-r"/>
+                                            <constraint firstItem="lbl-duration" firstAttribute="centerY" secondItem="vw-bottom-bar" secondAttribute="centerY" id="cst-dur-cy"/>
+                                            <constraint firstItem="lbl-duration" firstAttribute="leading" secondItem="sld-progress" secondAttribute="trailing" constant="8" id="cst-dur-l"/>
+                                            <constraint firstAttribute="height" constant="50" id="cst-bot-h"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="vw-top-bar" firstAttribute="leading" secondItem="vw-controls-overlay" secondAttribute="leading" constant="16" id="cst-top-l"/>
+                                    <constraint firstAttribute="trailing" secondItem="vw-top-bar" secondAttribute="trailing" constant="16" id="cst-top-r"/>
+                                    <constraint firstItem="stk-center-controls" firstAttribute="centerX" secondItem="vw-controls-overlay" secondAttribute="centerX" id="cst-ctrl-cx"/>
+                                    <constraint firstItem="stk-center-controls" firstAttribute="centerY" secondItem="vw-controls-overlay" secondAttribute="centerY" id="cst-ctrl-cy"/>
+                                    <constraint firstItem="act-player-spinner" firstAttribute="centerX" secondItem="vw-controls-overlay" secondAttribute="centerX" id="cst-spin-cx"/>
+                                    <constraint firstItem="act-player-spinner" firstAttribute="centerY" secondItem="vw-controls-overlay" secondAttribute="centerY" id="cst-spin-cy"/>
+                                    <constraint firstAttribute="trailing" secondItem="vw-bottom-bar" secondAttribute="trailing" constant="16" id="cst-bot-r"/>
+                                    <constraint firstItem="vw-bottom-bar" firstAttribute="leading" secondItem="vw-controls-overlay" secondAttribute="leading" constant="16" id="cst-bot-l"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safe-player"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vw-video-container" firstAttribute="top" secondItem="vw-root" secondAttribute="top" id="cst-vid-t"/>
+                            <constraint firstItem="vw-video-container" firstAttribute="leading" secondItem="vw-root" secondAttribute="leading" id="cst-vid-l"/>
+                            <constraint firstAttribute="trailing" secondItem="vw-video-container" secondAttribute="trailing" id="cst-vid-r"/>
+                            <constraint firstAttribute="bottom" secondItem="vw-video-container" secondAttribute="bottom" id="cst-vid-b"/>
+                            <constraint firstItem="vw-controls-overlay" firstAttribute="top" secondItem="vw-root" secondAttribute="top" id="cst-ol-t"/>
+                            <constraint firstItem="vw-controls-overlay" firstAttribute="leading" secondItem="vw-root" secondAttribute="leading" id="cst-ol-l"/>
+                            <constraint firstAttribute="trailing" secondItem="vw-controls-overlay" secondAttribute="trailing" id="cst-ol-r"/>
+                            <constraint firstAttribute="bottom" secondItem="vw-controls-overlay" secondAttribute="bottom" id="cst-ol-b"/>
+                            <constraint firstItem="safe-player" firstAttribute="top" secondItem="vw-top-bar" secondAttribute="top" id="cst-top-safe"/>
+                            <constraint firstItem="safe-player" firstAttribute="bottom" secondItem="vw-bottom-bar" secondAttribute="bottom" constant="24" id="cst-bot-safe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="lbl-curr-time" id="out-cur-time"/>
+                        <outlet property="dismissButton" destination="btn-dismiss" id="out-btn-dis"/>
+                        <outlet property="durationLabel" destination="lbl-duration" id="out-dur-lbl"/>
+                        <outlet property="forwardButton" destination="btn-forward" id="out-btn-fw"/>
+                        <outlet property="loadingIndicator" destination="act-player-spinner" id="out-spin"/>
+                        <outlet property="overlayView" destination="vw-controls-overlay" id="out-overlay"/>
+                        <outlet property="playPauseButton" destination="btn-play-pause" id="out-btn-pp"/>
+                        <outlet property="progressSlider" destination="sld-progress" id="out-slider"/>
+                        <outlet property="rewindButton" destination="btn-rewind" id="out-btn-rw"/>
+                        <outlet property="titleLabel" destination="lbl-top-title" id="out-title-top"/>
+                        <outlet property="videoContainerView" destination="vw-video-container" id="out-vid-cont"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="first-responder-player" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gobackward.10" catalog="system" width="119" height="128"/>
+        <image name="goforward.10" catalog="system" width="119" height="128"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

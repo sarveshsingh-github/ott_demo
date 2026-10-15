@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "id": "hero_001",
+    "title": "Big Buck Bunny",
+    "description": "A large and lovable rabbit takes on mischievous woodland bullies in this classic open-source animated adventure.",
+    "thumbnail_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop&q=80",
+    "banner_url": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200&auto=format&fit=crop&q=80",
+    "video_url": "https://www.w3schools.com/html/mov_bbb.mp4"
+  },
+  "rails": [
+    {
+      "id": "rail_trending",
+      "title": "Trending Now",
+      "items": [
+        {
+          "id": "trend_01",
+          "title": "Tears of Steel",
+          "description": "Set in a dystopian future where scientists attempt to recreate human emotions in a cyborg.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8"
+        },
+        {
+          "id": "trend_02",
+          "title": "Elephant's Dream",
+          "description": "Two strange wanderers explore the surreal, mechanical interior of a giant synthetic world.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://vjs.zencdn.net/v/oceans.mp4"
+        },
+        {
+          "id": "trend_03",
+          "title": "For Bigger Blazes",
+          "description": "Experience thrilling action and blazing excitement captured in high definition visuals.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8"
+        },
+        {
+          "id": "trend_04",
+          "title": "Sintel",
+          "description": "A lonely young woman searches the world for a kidnapped baby dragon she nurtured back to life.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8"
+        }
+      ]
+    },
+    {
+      "id": "rail_recommended",
+      "title": "Recommended for You",
+      "items": [
+        {
+          "id": "rec_01",
+          "title": "HLS BipBop 16x9",
+          "description": "Official Apple HLS test stream streaming high bitrate test video with timestamps.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+        },
+        {
+          "id": "rec_02",
+          "title": "Cosmic Voyager",
+          "description": "Journey through interstellar nebulae and undiscovered galaxies in this deep space odyssey.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://vjs.zencdn.net/v/oceans.mp4"
+        },
+        {
+          "id": "rec_03",
+          "title": "Neon Metropolis",
+          "description": "An investigation deep inside the dark alleys and bright neon skyscrapers of future Tokyo.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8"
+        },
+        {
+          "id": "rec_04",
+          "title": "Mountain Heights",
+          "description": "High altitude mountaineering team attempts an unsupported winter summit.",
+          "thumbnail_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop&q=80",
+          "banner_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&auto=format&fit=crop&q=80",
+          "video_url": "https://www.w3schools.com/html/mov_bbb.mp4"
+        }
+      ]
+    }
+  ]
+}

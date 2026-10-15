@@ -13,10 +13,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        // MARK: - Composition Root
+        // 1. Data Layer: Instantiate Data Source & Repository
+        let dataSource = MockContentRemoteDataSource()
+        let repository = ContentRepository(remoteDataSource: dataSource)
+
+        // 2. Domain Layer: Inject Repository into Use Case
+        let useCase = GetHomeContentUseCase(repository: repository)
+
+        // 3. Presentation Layer: Inject Use Case into ViewModel
+        let homeViewModel = HomeViewModel(getHomeContentUseCase: useCase)
+
+        // 4. UI: Instantiate from separate Home.storyboard & Inject ViewModel
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        guard let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
+            fatalError("Could not instantiate HomeViewController from Home.storyboard")
+        }
+        homeVC.configure(viewModel: homeViewModel)
+        let navigationController = UINavigationController(rootViewController: homeVC)
+
+        // 5. Setup Window
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = navigationController
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
